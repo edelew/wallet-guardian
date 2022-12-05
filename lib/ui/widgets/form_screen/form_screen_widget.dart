@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:wallet_guardian/ui/navigation/main_navigation.dart';
 
 class FormScreenWidget extends StatelessWidget {
   const FormScreenWidget({Key? key}) : super(key: key);
@@ -23,7 +24,8 @@ class FormScreenWidget extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             TextField(
-              onTap: () {},
+              onTap: () => Navigator.of(context)
+                  .pushNamed(MainNavigationRouteName.categoryScreen),
               keyboardType: TextInputType.none,
               decoration: const InputDecoration(
                 suffixIcon: Icon(Icons.arrow_drop_down),

@@ -7,7 +7,10 @@ class MainScreenWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const _MainScreenAppBarWidget(),
+      appBar: const PreferredSize(
+        preferredSize: Size.fromHeight(80),
+        child: _AppBarWidget(),
+      ),
       body: Column(
         children: [
           const Expanded(
@@ -86,28 +89,22 @@ class MainScreenWidget extends StatelessWidget {
   }
 }
 
-class _MainScreenAppBarWidget extends StatelessWidget
-    implements PreferredSizeWidget {
-  const _MainScreenAppBarWidget({Key? key}) : super(key: key);
+class _AppBarWidget extends StatelessWidget {
+  const _AppBarWidget({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
-      title: const Text(
-        "6 декабря 2022",
-        style: TextStyle(color: Colors.black),
-      ),
+      title: const Text("6 декабря 2022"),
       toolbarHeight: 80,
       // elevation: 0,
       // shape: const Border(
       //   bottom: BorderSide(color: Colors.black, width: 2),
       // ),
       backgroundColor: Colors.white,
+      foregroundColor: Colors.black,
     );
   }
-
-  @override
-  Size get preferredSize => const Size.fromHeight(80);
 }
 
 class _MainScreenListWidget extends StatelessWidget {

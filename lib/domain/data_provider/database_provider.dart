@@ -5,7 +5,6 @@ import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 
 import '../entity/cost.dart';
-// import 'package:path_provider/path_provider.dart';
 
 class DatabaseProvider {
   static DatabaseProvider? _instance;
@@ -44,5 +43,10 @@ class DatabaseProvider {
     List<Cost> costsList =
         costs.isNotEmpty ? costs.map((e) => Cost.fromMap(e)).toList() : [];
     return costsList;
+  }
+
+  Future<int> add(Cost cost) async {
+    Database db = await database;
+    return await db.insert('costs', cost.toMap());
   }
 }

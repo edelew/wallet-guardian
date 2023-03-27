@@ -37,4 +37,12 @@ class DatabaseProvider {
       )
     ''');
   }
+
+  Future<List<Cost>> getCosts() async {
+    Database db = await database;
+    var costs = await db.query('costs');
+    List<Cost> costsList =
+        costs.isNotEmpty ? costs.map((e) => Cost.fromMap(e)).toList() : [];
+    return costsList;
+  }
 }

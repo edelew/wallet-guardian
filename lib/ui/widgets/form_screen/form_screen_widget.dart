@@ -37,8 +37,26 @@ class FormScreenWidget extends StatelessWidget {
               style: TextStyle(fontWeight: FontWeight.bold),
             ),
             TextField(
-                keyboardType: TextInputType.number,
-                inputFormatters: [FilteringTextInputFormatter.digitsOnly]),
+              keyboardType: TextInputType.number,
+              inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+            ),
+            const SizedBox(height: 60),
+            Center(
+              child: ElevatedButton(
+                onPressed: () {},
+                style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all(
+                    Color.fromRGBO(22, 194, 39, 1),
+                  ),
+                  padding: MaterialStateProperty.all(
+                      const EdgeInsets.symmetric(horizontal: 15, vertical: 20)),
+                  shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(45))),
+                  elevation: MaterialStateProperty.all(0),
+                ),
+                child: Icon(Icons.check_outlined),
+              ),
+            ),
           ],
         ),
       ),
